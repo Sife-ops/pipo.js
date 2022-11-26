@@ -1,14 +1,16 @@
-import { Client } from "discord.js";
+import { Client as Discord } from "discord.js";
 import { token } from "./config";
+import { Client as Irc } from "irc";
 
-const client = new Client({ intents: ["Guilds", "GuildMessages"] });
+const discord = new Discord({ intents: ["Guilds", "GuildMessages"] });
+const irc = new Irc("irc.libera.chat", "pipojs", { port: 6697 });
 
-client.once("ready", () => {
+discord.once("ready", () => {
   console.log("ready");
 });
 
-client.on("messageCreate", (m) => {
+discord.on("messageCreate", (m) => {
   console.log(m);
 });
 
-client.login(token).then((res) => console.log(res));
+discord.login(token).then((res) => console.log(res));
