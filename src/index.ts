@@ -1,7 +1,7 @@
 import { Client } from "discord.js";
 import { token } from "./config";
 
-const client = new Client({ intents: ["Guilds"] });
+const client = new Client({ intents: ["Guilds", "GuildMessages"] });
 
 client.once("ready", () => {
   console.log("ready");
