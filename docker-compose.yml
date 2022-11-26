@@ -1,0 +1,7 @@
+services:
+  pipo:
+    build: .
+    # volumes:
+    #   - ~/database:/app/database
+    # ports:
+    #   - "80:4000"
