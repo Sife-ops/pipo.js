@@ -1,2 +1,4 @@
 node_modules
 dist
+shadow-realm
+src/config.ts
