@@ -23,6 +23,9 @@ const irc = new Irc("irc.geekshed.net", "pipojs", {
 // });
 
 discord.on("messageCreate", (m) => {
+  if (m.author.id === "1046005694769414174") {
+    return;
+  }
   console.log("messageCreate", m);
   // irc.say("#redbook", `${m.author.username} (Discord): ${m.content}`);
 });
