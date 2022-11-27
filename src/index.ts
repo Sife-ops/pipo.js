@@ -23,8 +23,8 @@ const irc = new Irc("irc.geekshed.net", "pipojs", {
 // });
 
 discord.on("messageCreate", (m) => {
-  console.log(m);
-  irc.say("#redbook", "sup");
+  console.log("messageCreate", m);
+  irc.say("#redbook", `${m.author.username} (Discord): ${m.content}`);
 });
 
 irc.addListener("message", function (from, to, message) {
