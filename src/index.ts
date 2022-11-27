@@ -1,4 +1,4 @@
-import { Client as Discord } from "discord.js";
+import { Client as Discord, TextChannel } from "discord.js";
 import { Client as Irc } from "irc";
 import { token } from "./config";
 
@@ -24,11 +24,17 @@ const irc = new Irc("irc.geekshed.net", "pipojs", {
 
 discord.on("messageCreate", (m) => {
   console.log("messageCreate", m);
-  irc.say("#redbook", `${m.author.username} (Discord): ${m.content}`);
+  // irc.say("#redbook", `${m.author.username} (Discord): ${m.content}`);
 });
 
 irc.addListener("message", function (from, to, message) {
   console.log(from + " => " + to + ": " + message);
+
+  // discord.
+  // discord.channels.fetch("977039347348017216").then(e => e.);
+
+  const ts = discord.channels.cache.get("990776652604801044") as TextChannel;
+  ts.send(`${from} (IRC): ${message}`);
 });
 
 ////////////////////////////////////////////////////////////////////////////////
