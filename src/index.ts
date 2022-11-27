@@ -18,24 +18,18 @@ const irc = new Irc("irc.geekshed.net", "pipojs", {
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-// discord.once("ready", () => {
-//   console.log("ready");
-// });
+discord.once("ready", () => {
+  console.log("ready");
+});
 
 discord.on("messageCreate", (m) => {
   if (m.author.id === "1046005694769414174") {
     return;
   }
-  console.log("messageCreate", m);
-  // irc.say("#redbook", `${m.author.username} (Discord): ${m.content}`);
+  irc.say("#redbook", `${m.author.username} (Discord): ${m.content}`);
 });
 
 irc.addListener("message", function (from, to, message) {
-  console.log(from + " => " + to + ": " + message);
-
-  // discord.
-  // discord.channels.fetch("977039347348017216").then(e => e.);
-
   const ts = discord.channels.cache.get("990776652604801044") as TextChannel;
   ts.send(`${from} (IRC): ${message}`);
 });
