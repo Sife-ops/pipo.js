@@ -1,5 +1,5 @@
 services:
-  pipo:
+  pipojs:
     build: .
     # volumes:
     #   - ~/database:/app/database
